@@ -1,6 +1,6 @@
 import {
   BarChart3,
-  Bell,
+  MessageCircle,
   BookOpen,
   ClipboardCheck,
   Gauge,
@@ -23,7 +23,7 @@ export const navItems = [
   { href: "/dashboard/skills", label: "Skills", icon: BookOpen },
   { href: "/dashboard/roadmap", label: "Roadmap", icon: Target },
   { href: "/dashboard/analytics", label: "Analytics", icon: BarChart3 },
-  { href: "/dashboard/notifications", label: "Notifications", icon: Bell },
+  { href: "/dashboard/chat", label: "Career Copilot Chat", icon: MessageCircle },
   { href: "/dashboard/profile", label: "Profile", icon: User },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
