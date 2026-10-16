@@ -3,6 +3,7 @@ import ai from "../../lib/gemini.js";
 import JobMatch, { IJobRequirement } from "../../models/JobMatch.js";
 import Resume from "../../models/Resume.js";
 import { CreateJobMatchInput } from "./jobs.validator.js";
+import { scoreRequirements } from "./jobs.scoring.js";
 
 const requirementResultSchema = {
   type: "OBJECT",
@@ -24,27 +25,6 @@ const modelResponseSchema = {
     recommendations: { type: "ARRAY", items: { type: "STRING" } },
   },
   required: ["summary", "requirements", "recommendations"],
-};
-
-const scoreRequirements = (requirements: IJobRequirement[]) => {
-  if (requirements.length === 0) return 0;
-
-  let possiblePoints = 0;
-  let earnedPoints = 0;
-
-  for (const requirement of requirements) {
-    const weight = requirement.importance === "required" ? 2 : 1;
-    const statusValue = requirement.status === "match"
-      ? 1
-      : requirement.status === "partial"
-        ? 0.5
-        : 0;
-
-    possiblePoints += weight;
-    earnedPoints += weight * statusValue;
-  }
-
-  return Math.round((earnedPoints / possiblePoints) * 100);
 };
 
 const parseModelJson = (text: string) => {
