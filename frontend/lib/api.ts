@@ -137,3 +137,46 @@ export async function getLatestAnalysis(resumeId: string) {
     `/api/ai/analysis/${resumeId}`,
   );
 }
+
+
+export type JobRequirement = {
+  name: string;
+  importance: "required" | "preferred";
+  status: "match" | "partial" | "missing";
+  evidence: string;
+  explanation: string;
+};
+
+export type JobMatchRecord = {
+  _id: string;
+  resume: string;
+  jobTitle: string;
+  company: string;
+  jobDescription?: string;
+  requirements: JobRequirement[];
+  matchScore: number;
+  summary: string;
+  recommendations: string[];
+  createdAt: string;
+  updatedAt: string;
+};
+
+export async function createJobMatch(payload: {
+  resumeId: string;
+  jobTitle: string;
+  company?: string;
+  jobDescription: string;
+}) {
+  return apiRequest<{ success: boolean; data: JobMatchRecord }>(
+    "/api/jobs/match",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    },
+  );
+}
+
+export async function getJobMatches() {
+  return apiRequest<{ success: boolean; data: JobMatchRecord[] }>("/api/jobs/matches");
+}
