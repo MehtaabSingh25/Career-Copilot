@@ -54,12 +54,13 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 px-4 py-8 dark:bg-zinc-950">
+    <div className="min-h-screen bg-gradient-to-br from-zinc-50 via-white to-zinc-100 px-4 py-8 dark:from-zinc-950 dark:via-zinc-950 dark:to-zinc-900">
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-6xl items-center justify-center">
-        <div className="grid w-full overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm md:grid-cols-[1fr_0.9fr] dark:border-zinc-800 dark:bg-zinc-900">
-          <div className="hidden bg-zinc-950 p-10 text-white md:flex md:flex-col md:justify-between">
-            <Link href="/" className="text-lg font-semibold">
-              ResumeAI
+        <div className="grid w-full overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-xl shadow-zinc-900/5 md:grid-cols-[1fr_0.9fr] dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-black/20">
+          <div className="relative hidden overflow-hidden bg-gradient-to-br from-zinc-950 via-zinc-900 to-slate-800 p-10 text-white md:flex md:flex-col md:justify-between">
+            <Link href="/" className="flex w-fit items-center gap-3 text-lg font-semibold tracking-tight">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-sm font-bold ring-1 ring-white/20">CC</span>
+              Career Copilot
             </Link>
             <div>
               <p className="max-w-sm text-3xl font-semibold tracking-tight">
@@ -76,8 +77,8 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
           </div>
 
           <div className="p-6 sm:p-10">
-            <Link href="/" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-              Back to home
+            <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white">
+              <span aria-hidden="true">←</span> Back to home
             </Link>
             <div className="mt-10">
               <h1 className="text-3xl font-semibold tracking-tight">
@@ -97,7 +98,7 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
                     onChange={(event) => setName(event.target.value)}
                     required
                     minLength={3}
-                    className="mt-2 h-12 w-full rounded-lg border border-zinc-200 bg-white px-4 outline-none focus:border-zinc-950 dark:border-zinc-800 dark:bg-zinc-950"
+                    className="mt-2 h-12 w-full rounded-lg border border-zinc-200 bg-white px-4 outline-none focus:border-zinc-500 focus:ring-4 focus:ring-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:focus:border-zinc-500 dark:focus:ring-zinc-800/70"
                     placeholder="You"
                   />
                 </label>
@@ -110,7 +111,7 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
                   onChange={(event) => setEmail(event.target.value)}
                   required
                   type="email"
-                  className="mt-2 h-12 w-full rounded-lg border border-zinc-200 bg-white px-4 outline-none focus:border-zinc-950 dark:border-zinc-800 dark:bg-zinc-950"
+                  className="mt-2 h-12 w-full rounded-lg border border-zinc-200 bg-white px-4 outline-none focus:border-zinc-500 focus:ring-4 focus:ring-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:focus:border-zinc-500 dark:focus:ring-zinc-800/70"
                   placeholder="you@example.com"
                 />
               </label>
@@ -123,14 +124,14 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
                     required
                     minLength={6}
                     type="password"
-                    className="mt-2 h-12 w-full rounded-lg border border-zinc-200 bg-white px-4 outline-none focus:border-zinc-950 dark:border-zinc-800 dark:bg-zinc-950"
+                    className="mt-2 h-12 w-full rounded-lg border border-zinc-200 bg-white px-4 outline-none focus:border-zinc-500 focus:ring-4 focus:ring-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:focus:border-zinc-500 dark:focus:ring-zinc-800/70"
                     placeholder="Minimum 6 characters"
                   />
                 </label>
 
               <button
                 disabled={loading}
-                className="h-12 w-full rounded-lg bg-zinc-950 px-5 font-medium text-white hover:bg-zinc-800 disabled:opacity-60 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+                className="h-12 w-full rounded-xl bg-zinc-950 px-5 font-semibold text-white shadow-sm hover:-translate-y-0.5 hover:bg-zinc-800 disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
               >
                 {loading ? "Please wait..." : copy[mode].button}
               </button>

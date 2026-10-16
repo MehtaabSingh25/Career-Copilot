@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ResumeAI - Resume Analyzer and Career Copilot",
+  title: { default: "Career Copilot", template: "%s | Career Copilot" },
   description:
-    "Upload resumes, review ATS-focused feedback, compare versions, and plan your next career steps.",
+    "Your AI-powered career workspace for resume analysis, job matching, resume tailoring, and career guidance.",
 };
 
 export default function RootLayout({

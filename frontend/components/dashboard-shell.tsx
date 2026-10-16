@@ -18,15 +18,15 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
   }
 
   const sidebar = (
-    <aside className="flex h-full w-72 flex-col border-r border-zinc-200 bg-white px-4 py-5 dark:border-zinc-800 dark:bg-zinc-950">
+    <aside className="flex h-full w-72 flex-col border-r border-zinc-200/80 bg-white px-4 py-5 dark:border-zinc-800 dark:bg-zinc-950">
       <Link href="/dashboard" className="flex items-center gap-3 px-2">
-        <div className="grid h-10 w-10 place-items-center rounded-lg bg-zinc-950 text-sm font-bold text-white dark:bg-white dark:text-zinc-950">
-          AI
+        <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-zinc-950 to-slate-700 text-xs font-bold tracking-wide text-white shadow-sm dark:from-white dark:to-zinc-300 dark:text-zinc-950">
+          CC
         </div>
         <div>
-          <p className="font-semibold tracking-tight">ResumeAI</p>
-          <p className="text-xs text-zinc-600 dark:text-zinc-300">
-            Career copilot
+          <p className="font-semibold tracking-tight">Career Copilot</p>
+          <p className="text-xs text-zinc-500 dark:text-zinc-400">
+            Your career workspace
           </p>
         </div>
       </Link>
