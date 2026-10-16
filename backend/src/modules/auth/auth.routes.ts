@@ -9,13 +9,13 @@ import {
 
 import authMiddleware from "../../middleware/auth.middleware.js";
 import validate from "../../middleware/validate.js";
-import { authLimiter } from "../../middleware/rateLimiter.js";
+import { authLimiter, registerLimiter } from "../../middleware/rateLimiter.js";
 
 import { loginSchema, registerSchema } from "./auth.validator.js";
 
 const router = Router();
 
-router.post("/register", validate(registerSchema), registerUser);
+router.post("/register", registerLimiter, validate(registerSchema), registerUser);
 
 router.post("/login", authLimiter, validate(loginSchema), loginUser);
 

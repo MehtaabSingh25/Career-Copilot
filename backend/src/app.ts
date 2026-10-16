@@ -10,6 +10,10 @@ import jobsRoutes from "./modules/jobs/jobs.routes.js";
 
 const app = express();
 
+// The app runs behind Render's reverse proxy in production. Use the client IP
+// forwarded by the single trusted proxy so IP-based rate limits work correctly.
+app.set("trust proxy", 1);
+
 app.use(
     cors({
         origin: [
