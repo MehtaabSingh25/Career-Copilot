@@ -5,6 +5,7 @@ import {
   ClipboardCheck,
   Gauge,
   History,
+  BriefcaseBusiness,
   Settings,
   Target,
   Upload,
@@ -14,6 +15,7 @@ import {
 export const navItems = [
   { href: "/dashboard", label: "Dashboard", icon: Gauge },
   { href: "/dashboard/upload", label: "Upload", icon: Upload },
+  { href: "/dashboard/jobs", label: "Job Matcher", icon: BriefcaseBusiness },
   { href: "/dashboard/history", label: "History", icon: History },
   { href: "/dashboard/compare", label: "Compare", icon: ClipboardCheck },
   { href: "/dashboard/skills", label: "Skills", icon: BookOpen },
