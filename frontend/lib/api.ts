@@ -132,6 +132,27 @@ export async function analyzeResume(resumeId: string, token = getToken()) {
   );
 }
 
+export type TailoredResumeDraft = {
+  professionalSummary: string;
+  skills: string[];
+  experienceBullets: string[];
+  projectBullets: string[];
+  keywords: string[];
+  changeNotes: string[];
+  cautions: string[];
+};
+
+export async function tailorResume(resumeId: string, jobDescription: string) {
+  return apiRequest<{ success: boolean; data: TailoredResumeDraft }>(
+    `/api/ai/tailor/${resumeId}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ jobDescription }),
+    },
+  );
+}
+
 export async function getLatestAnalysis(resumeId: string) {
   return apiRequest<{ success: boolean; data: ResumeAnalysis | null }>(
     `/api/ai/analysis/${resumeId}`,
