@@ -177,6 +177,15 @@ export async function createJobMatch(payload: {
   );
 }
 
+export type JobMatchSummary = Pick<
+  JobMatchRecord,
+  "_id" | "resume" | "jobTitle" | "company" | "matchScore" | "summary" | "createdAt" | "updatedAt"
+>;
+
 export async function getJobMatches() {
-  return apiRequest<{ success: boolean; data: JobMatchRecord[] }>("/api/jobs/matches");
+  return apiRequest<{ success: boolean; data: JobMatchSummary[] }>("/api/jobs/matches");
+}
+
+export async function getJobMatch(matchId: string) {
+  return apiRequest<{ success: boolean; data: JobMatchRecord }>(`/api/jobs/matches/${matchId}`);
 }
