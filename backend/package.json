@@ -7,8 +7,8 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-    "test": "tsx --test test/auth.validator.test.ts test/resume.validator.test.ts test/validate.middleware.test.ts test/auth.middleware.test.ts test/jobs.validator.test.ts test/jobs.scoring.test.ts test/ai.tailor.validator.test.ts",
-    "test:watch": "tsx --test --watch test/auth.validator.test.ts test/resume.validator.test.ts test/validate.middleware.test.ts test/auth.middleware.test.ts test/jobs.validator.test.ts test/jobs.scoring.test.ts test/ai.tailor.validator.test.ts"
+    "test": "tsx --test test/auth.validator.test.ts test/resume.validator.test.ts test/validate.middleware.test.ts test/auth.middleware.test.ts test/jobs.validator.test.ts test/jobs.scoring.test.ts test/ai.tailor.validator.test.ts test/ai.chat.validator.test.ts",
+    "test:watch": "tsx --test --watch test/auth.validator.test.ts test/resume.validator.test.ts test/validate.middleware.test.ts test/auth.middleware.test.ts test/jobs.validator.test.ts test/jobs.scoring.test.ts test/ai.tailor.validator.test.ts test/ai.chat.validator.test.ts"
   },
   "keywords": [],
   "author": "",
