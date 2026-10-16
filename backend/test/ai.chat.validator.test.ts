@@ -31,3 +31,11 @@ test("careerChatSchema trims the question", () => {
   assert.equal(result.success, true);
   if (result.success) assert.equal(result.data.question, validQuestion);
 });
+
+test("careerChatSchema accepts a valid conversation ID", () => {
+  assert.equal(careerChatSchema.safeParse({ question: validQuestion, conversationId: "507f1f77bcf86cd799439011" }).success, true);
+});
+
+test("careerChatSchema rejects an invalid conversation ID", () => {
+  assert.equal(careerChatSchema.safeParse({ question: validQuestion, conversationId: "not-an-id" }).success, false);
+});
